@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Main() {
   const navigate = useNavigate();
   return(
-    <div class="titleimgwrap">
+    <div className="titleimgwrap">
       <img src={titleImg} alt="대문" className='title-Img' onClick={()=>{navigate('/fastivals')}}/>
     
     </div>
