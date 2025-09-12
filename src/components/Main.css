@@ -1,0 +1,13 @@
+.title-Img{
+  width:100vw;
+  max-width: 1400px;
+  min-width: 1200px;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  
+}
+.titleimgwrap{
+  position: relative;
+  cursor: pointer;
+}
