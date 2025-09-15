@@ -5,18 +5,36 @@ const festivalSlice = createSlice({
   name: 'festivalSlice',
   initialState: {
     
-    list: null,//페스티벌 리스트
+    list: [],//페스티벌 리스트
+    page: 1,
+    scrollEventFlg: true,
   },
   reducers : {
-    setList(state, action){
-      state.list =  action.payload;
-
+    setSrollEventFlg: (state ,action) => {
+      state.scrollEventFlg = action.payload;
     }
   },
   extraReducers: builder => {
       builder
         .addCase(festivalIndex.fulfilled, (state, action) => {
-          console.log(action.payload,action.type);
+          // console.log(action.payload,action.type);
+          // if(state.list !== null){
+          // if(state.list !== null){
+          //   state.list = [...state.list, ...action.payload.items.item];
+          //   state.page = action.payload.pageNo;
+          // }else{
+          //   state.list = action.payload.items.item;
+          // }
+          if(action.payload.items?.item){
+            state.list = [...state.list, ...action.payload.items.item];
+            state.page = action.payload.pageNo;
+            state.scrollEventFlg = true;
+          }else{
+            state.scrollEventFlg = false;
+          }
+
+
+          
         })
         .addMatcher(
           action => action.type.endsWith('/pending'),
@@ -26,15 +44,15 @@ const festivalSlice = createSlice({
         )
         .addMatcher(
           action => action.type.endsWith('/rejected'),
-          state => {
-            console.error('에러')  ;
+          (state,action) => {
+            console.error('에러',action.error)  ;
           }
         );
     }
 });
 
 export const {
-  setList
+  setSrollEventFlg
 } = festivalSlice.actions;
 
 export default festivalSlice.reducer;
