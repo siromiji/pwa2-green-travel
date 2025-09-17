@@ -17,14 +17,24 @@ function FestivalList() {
   },[]);
 //스크롤용 useEffect
   useEffect(()=>{
-  
+    // TODO
+    // 로컬스토리지에 저장된 날짜를 획득
+    //   저장된 날짜 없으면 로컬스토리지에 현재 날짜 저장
+    //   저장된 날짜 있으면 아래처리 속행
+    //      오늘날짜랑 비교
+    //        날짜가 과거면 로컬 스토리지 및 스테이트 초기화
+    //        아직 과거가 아니면 처리속행
     window.addEventListener('scroll', addNextPage);
     //window event는 현재컴포넌트가 없는 다른 페이지에도 실행되어서 꼭 리무브 해줘야함 
-    return () => {
-      window.removeEventListener('scroll', addNextPage);  
+    
+    if(festivalList.length === 0) {
+      dispatch(festivalIndex());
     }
-  },[page,setSrollEventFlg]);
 
+    return () => {
+      window.removeEventListener('scroll', addNextPage);
+    }
+  }, []);
   //다음페이지 가져오기
   function addNextPage(){
      /*스크롤 이벤트 주의사항
@@ -36,12 +46,13 @@ function FestivalList() {
     */
     const docHeight = document.documentElement.scrollHeight;//문서의 Y축 총 길이
     const winHeight = window.innerHeight;//윈도우의 Y축 총 길이 
-    const nowHeight = window.scrollY;//현재 스크롤의 Y축 위치
+    const nowHeight = Math.ceil(window.scrollY); // 현재 스크롤의 Y축 위치
     const viewHeight = docHeight - winHeight//스크롤을 끝까지 내렸을 때의 Y축 위치 
 
     if(viewHeight === nowHeight && scrollEventFlg){
       dispatch(setSrollEventFlg(false))
       dispatch(festivalIndex(page + 1));
+      dispatch(festivalIndex());
     }
     
 
