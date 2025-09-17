@@ -1,12 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosConfig from "../../configs/axiosConfig";
+import axiosConfig from "../../configs/axiosConfig.js";
 import axios from "axios";
 import { dateCalculater } from "../../utils/dateCalculater.js";
 import { dateFormatter } from "../../utils/dateFormatter.js";
 
 const festivalIndex = createAsyncThunk(
   'festivalSlice/festivalIndex',
-
   async (arg, thunkAPI) => {
     // state 접근 방법
     const state = thunkAPI.getState();
@@ -26,15 +25,11 @@ const festivalIndex = createAsyncThunk(
       }
     }
 
-    
-    const response = await axios.get(url,config);
-
+    const response = await axios.get(url, config);
     return response.data.response.body;
-
   }
-
 );
 
-
-
-export {festivalIndex};
+export { 
+  festivalIndex
+};
