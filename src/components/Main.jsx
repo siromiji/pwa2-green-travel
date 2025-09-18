@@ -6,7 +6,7 @@ function Main() {
   const navigate = useNavigate();
   return(
     <div className="titleimgwrap">
-      <img src={titleImg} alt="대문" className='title-Img' onClick={()=>{navigate('/fastivals')}}/>
+      <img src={titleImg} alt="대문" className='title-Img' onClick={()=>{navigate('/festivals')}}/>
     
     </div>
   ) 
