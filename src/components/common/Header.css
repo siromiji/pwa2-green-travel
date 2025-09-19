@@ -10,3 +10,45 @@ h1{
   text-align: center;
 
 }
+.hamImg{
+  width:91px;
+  height:69px;
+  position: fixed;
+  left:48px;
+  top:48px;
+  cursor: pointer;
+}
+.hamImg>img{
+  width:100%;
+}
+.navbox{
+
+  position: fixed;
+  left:0;
+  top:0;
+  width:450px;
+  height:100vh;
+  background-color: #1E1C1D;
+  color:#C18259;
+  font-size: 35px;
+  padding: 20px;
+  z-index: 2;
+}
+.navbox> span{
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 900;
+  position: absolute;
+  right:20px;
+  top:20px;
+}
+.navbox >img{
+  width:400px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+.navbox>p{
+  margin-top: 10px;
+  margin-left: 20px;
+  cursor: pointer;
+}

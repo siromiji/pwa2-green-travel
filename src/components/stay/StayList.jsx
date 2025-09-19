@@ -1,23 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './FestivalList.css';
+import './StayList.css';
 import { useEffect } from 'react';
-import { festivalIndex } from '../../store/thunks/festivalThunk.js';
-import { dateFormatter } from '../../utils/dateFormatter.js';
-import { setScrollEventFlg } from '../../store/slices/festivalSlice.js';
+import { stayIndex } from '../../store/thunks/stayThunk.js';
+import { setScrollEventFlg } from '../../store/slices/staySlice.js';
 import { useNavigate } from 'react-router-dom';
 
-function FestivalList() {
+function StayList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const festivalList = useSelector(state => state.festival.list);
-  const scrollEventFlg = useSelector(state => state.festival.scrollEventFlg);
+  const stayList = useSelector(state => state.stay.list);
+  const scrollEventFlg = useSelector(state => state.stay.scrollEventFlg);
 
   useEffect(() => {
     window.addEventListener('scroll', addNextPage);
     
-    if(festivalList.length === 0) {
-      dispatch(festivalIndex());
+    if(stayList.length === 0) {
+      dispatch(stayIndex());
     }
 
     return () => {
@@ -35,14 +34,14 @@ function FestivalList() {
     
     if(viewHeight === nowHeight && scrollEventFlg) {
       dispatch(setScrollEventFlg(false));
-      dispatch(festivalIndex());
+      dispatch(stayIndex());
     }
   }
 
   // 상세페이지로 이동
   function redirectShow(item) {
     // dispatch(setFestivalInfo(item));
-    navigate(`/festivals/${item.contentid}`);
+    navigate(`/stays/${item.contentid}`);
   }
 
   return (
@@ -50,20 +49,18 @@ function FestivalList() {
       <div className='backimgwrap'></div>
       <div className="container">
         {
-          festivalList.map(item => {
+          stayList.map(item => {
             return (
               <div className="card" onClick={() => { redirectShow(item) }} key={item.contentid + item.createdtime}>
                 <div className="card-img" style={{backgroundImage: `url('${item.firstimage}')`}}></div>
                 <p className="card-title">{item.title}</p>
-                <p className="card-period">{dateFormatter.withHyphenYMD(item.eventstartdate)} ~ {dateFormatter.withHyphenYMD(item.eventenddate)}</p>
               </div>
             );
           })
         }
       </div>
-      {/* <button type="button" onClick={addNextPage}>더 보기</button> */}
     </>
   )
 }
 
-export default FestivalList;
+export default StayList;
