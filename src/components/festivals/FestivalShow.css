@@ -1,3 +1,17 @@
+.backimgwrap{
+  width:100vw;
+  height:100vh;
+  position: fixed;
+  left:0;
+  bottom: 0;
+  opacity: 0.5;
+  background-image: url("/base/backimg.png") ;
+  background-size: cover;
+  z-index: -1;         
+  pointer-events: none;
+  background-repeat: no-repeat;
+}
+
 .show-container {
   padding: 20px;
   display: flex;

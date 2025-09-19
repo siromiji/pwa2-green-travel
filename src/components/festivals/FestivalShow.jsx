@@ -22,7 +22,7 @@ function FestivalShow() {
   }
 
   return (
-    <>
+    <><div className='backimgwrap'></div>
       {
         festivalInfo.title &&
         <div className="show-container">

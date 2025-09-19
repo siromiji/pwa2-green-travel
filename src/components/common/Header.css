@@ -3,7 +3,8 @@ h1{
   font-size: 50px;
   text-align: center;
   font-weight: 900;
-  padding-top: 55px;
+  padding-top: 65px;
+
  
 }
 .wonImg{
@@ -11,12 +12,13 @@ h1{
 
 }
 .hamImg{
-  width:91px;
-  height:69px;
+  /* width:91px;
+  height:69px; */
   position: fixed;
   left:48px;
   top:48px;
   cursor: pointer;
+  width: clamp(24px, 6vw, 60px);
 }
 .hamImg>img{
   width:100%;
@@ -52,3 +54,11 @@ h1{
   margin-left: 20px;
   cursor: pointer;
 }
+
+/* @media (max-width: 600px) {
+  .hamImg{
+  width:40px;
+  height:40px;
+ 
+}
+} */

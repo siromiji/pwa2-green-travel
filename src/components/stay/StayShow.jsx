@@ -30,8 +30,8 @@ function StayShow() {
           <button type="stay-button" onClick={redirectBack}>되돌아가기</button>
           <img className="stay-show-img" src={stayInfo.firstimage} alt={`${stayInfo.title}사진`} />
           <p className="stay-show-title">{stayInfo.title}</p>
-          <p className="stay-show-period">{`주소 : ${stayInfo.addr1}`}</p>
-          <p className="stay-show-period">{`전화번호 : ${stayInfo.tel}`}</p>
+          <p className="stay-show-period">{stayInfo.addr1}</p>
+          <p className="stay-show-period">{stayInfo.tel}</p>
           
           
         </div>
