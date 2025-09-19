@@ -47,6 +47,7 @@ function FestivalList() {
 
   return (
     <>
+<div className='backimgwrap'></div>
       <div className="container">
         {
           festivalList.map(item => {
