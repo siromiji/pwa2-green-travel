@@ -18,7 +18,7 @@ h1{
   left:48px;
   top:48px;
   cursor: pointer;
-  width: clamp(24px, 6vw, 60px);
+  width: clamp(40px, 6vw, 60px);
 }
 .hamImg>img{
   width:100%;
