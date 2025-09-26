@@ -14,7 +14,7 @@ const festivalIndex = createAsyncThunk(
     const url = `${axiosConfig.BASE_URL}/searchFestival2`;
     const config = {
       params: {
-        serviceKey: axiosConfig.SERVICE_KEY,
+        serviceKey: import.meta.env.VITE_SERVICE_KEY,
         MobileOS : axiosConfig.MOBILE_OS,
         MobileApp: axiosConfig.MOBILE_App,
         _type: axiosConfig.TYPE,

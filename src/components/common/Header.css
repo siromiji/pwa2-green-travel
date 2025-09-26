@@ -1,5 +1,5 @@
 h1{
-  color:#C18259;
+  color:var(--maincolor);
   font-size: 50px;
   text-align: center;
   font-weight: 900;
@@ -31,7 +31,7 @@ h1{
   width:450px;
   height:100vh;
   background-color: #1E1C1D;
-  color:#C18259;
+  color:var(--maincolor);
   font-size: 35px;
   padding: 20px;
   z-index: 2;

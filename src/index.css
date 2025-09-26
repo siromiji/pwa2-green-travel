@@ -3,7 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* css에서의 변수 선언  */
+:root{
+  /* 변수명은 무조건 '--변수명'로 시작 */
+  --maincolor : #C18259;
+  
+  
+}
 body{
   background-color: black;
 }

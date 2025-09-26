@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import './StayShow.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setStayInfo } from "../../store/slices/stayShow.js";
+import { setStayInfo } from "../../store/slices/stayShowSlice.js";
 
 function StayShow() {
   const params = useParams();
